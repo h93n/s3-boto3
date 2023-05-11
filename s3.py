@@ -106,8 +106,26 @@ def uploadMulti_file(s3, bucket):
 def DeletsBucket(s3, bucket):
 
     s3.delete_bucket(Bucket=bucket)
+    
+    
+    
 
+def deleteBucketNotEmpty(s3, bucket):
+    # Set the name of the bucket you want to delete
+    
 
+# Delete all objects in the bucket
+    response = s3.list_objects_v2(Bucket=bucket)
+    if 'Contents' in response:
+       for obj in response['Contents']:
+           s3.delete_object(Bucket=bucket, Key=obj['Key'])
+# Delete the bucket itself
+    s3.delete_bucket(Bucket=bucket)
+    
+    
+    
+    
+    
 	
 def main_menu():
     """Display the main menu and execute the user's choice"""
@@ -118,7 +136,7 @@ def main_menu():
     print("2. Upload a file to a bucket")
     print("3. Upload multiple files to a bucket")
     print("4. download  a file from a bucket")
-    print("5. delete bucket")
+    print("5. delete bucket ")
     print("6. Exit")
 
     choice = input("Enter option number: ")
@@ -148,7 +166,7 @@ def main_menu():
     elif choice == "5":
         listBuckets(s3)
         bucket = input("Enter bucket name to delete: ")
-        DeletsBucket(s3, bucket)
+        deleteBucketNotEmpty(s3, bucket)
         
     elif choice == "6":
         print("Exiting program...")

@@ -103,12 +103,9 @@ def uploadMulti_file(s3, bucket):
         s3.upload_file(file_name, bucket, object_name)
         print(f"{file_name} uploaded as {file_name} to S3 bucket {bucket}")
 
-def DeletsBucket(s3, bucket):
 
-    s3.delete_bucket(Bucket=bucket)
     
-    
-    
+   
 
 def deleteBucketNotEmpty(s3, bucket):
     # Set the name of the bucket you want to delete

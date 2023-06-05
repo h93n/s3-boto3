@@ -1,4 +1,36 @@
-# s3-boto3
-You have been asked to write a Python script to automate the backup process of a company's website files. The website files are hosted on an S3 bucket named "my-bucket", which contains a large number of files and directories. Write a Python script that allows the user to choose one of the following actions to perform on the S3 bucket "my-bucket" using Boto3 : ( some functions may be need OS also )
+# S3 Boto3 Backup Automation
 
-Create a new S3 bucket named "my-new-bucket". ( you have to choose the bucket name, remember that the bucket name should be unique ) Upload a single file named "my-file.txt" to the existing S3 bucket named "my-bucket". Upload multiple files to the existing S3 bucket named "my-bucket". Download the file named "my-file.txt" from the existing S3 bucket named "my-bucket". List all the objects in the existing S3 bucket named "my-bucket". Delete the existing S3 bucket named "my-bucket". Write a separate function for each action: create_s3_bucket(bucket_name) ● This function should create a new S3 bucket with the given name. upload_file_to_s3(file_path, bucket_name) ● This function should upload a single file to the given S3 bucket. upload_files_to_s3(directory_path, bucket_name) ● This function should upload all the files in the given directory to the given S3 bucket. download_file_from_s3(bucket_name, file_name, download_path) ● This function should download the given file from the given S3 bucket to the specified path. list_s3_objects(bucket_name) ● This function should list all the objects in the given S3 bucket. delete_s3_bucket(bucket_name) ● This function should delete the given S3 bucket. The script should prompt the user to enter a number corresponding to the action they want to perform. After the user enters their choice, the script should call the corresponding function to execute the action using Boto3. *** the script should run on VM CLI.
+This Python script automates the backup process of a company's website files using Boto3. It allows the user to choose different actions to perform on an S3 bucket.
+
+## Prerequisites
+
+- Python 3
+- Boto3 library (`pip install boto3`)
+- AWS CLI configured with proper credentials
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+
+# Install the required dependencies:
+pip install -r requirements.txt
+
+# Usage
+Run the script:
+python backup_script.py
+Choose an action to perform by entering the corresponding number:
+Create a new S3 bucket
+Upload a single file
+Upload multiple files
+Download a file
+List all objects
+Delete the S3 bucket
+Follow the prompts and provide the necessary information.
+
+# References
+Boto3 documentation
+AWS CLI installation guide
